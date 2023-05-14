@@ -12,6 +12,13 @@ Exemple: 4 i 10  --> resultat = 4 + 5 + 6 + 7 + 8 + 9 + 10 = 49 */
             int numero2 = in.nextInt();
 
             int suma = 0;
+            int numeroAux;
+
+            if (numero2<numero1) {
+                numeroAux=numero1;
+                numero1=numero2;
+                numero2=numeroAux;
+            }
             for (int i = numero1; i <= numero2; i++) {
                 suma += i;
             }
