@@ -44,8 +44,7 @@ public class App {
                 noBecas.add(name);
             }
             in.nextLine();
-        } while (names.size() < 5);
-
+        } while (names.size() < 5); //Indeterminado
         System.out.println("\nCongrats! You won the scholarship: ");
         for (String nom : names) {
             System.out.println(nom);
