@@ -2,20 +2,15 @@ import java.util.ArrayList;
 
 public class MethodsProva {
 
-    /************************************
+    /****************************************************************************************************
      * [METHOD A]
-     ************************************/
+     ****************************************************************************************************/
 
-    /*
-     * [METHOD A: biggerSmallerIndex()] Create a method that receives an arrayList
-     * of numbers as a parameter, print the largest number by console and return
-     * the index of the arrayList where the smallest number is located.
-     */
-    public static int biggerSmallerIndex(ArrayList<Integer> numbers) {
+    public static byte biggerSmallerIndex(ArrayList<Byte> numbers) {
 
         // Declaration and assignment of variables
-        int bigger = 0;
-        int smaller = 20;
+        int bigger = numbers.get(0);
+        int smaller = numbers.get(0);
         int index = 0;
 
         /*
@@ -26,12 +21,10 @@ public class MethodsProva {
          * the bigger and smaller variables.
          */
 
-         System.out.println("\nThe random list is: ");
-         for (Integer listNumbers : numbers) {
-             System.out.println(listNumbers);
-         }
+        System.out.println("\nThe random list of numbers is: ");//Print the ArrayList
+        System.out.println(numbers);
 
-        for (int i = 0; i < numbers.size(); i++) {
+        for (int i = 0; i < numbers.size(); i++) {//It'll go through the size of the list and check which is the biggest and smallest number
             if (bigger < numbers.get(i)) {
                 bigger = numbers.get(i);
             }
@@ -40,29 +33,26 @@ public class MethodsProva {
                 index = i;
             }
         }
-        System.out.printf("The biggest and smallest numbers of the list, respectively, are: %d and %d.\n", bigger, smaller); // Print the biggest and smallest numbers of the ArrayList<Integer> numbers.
 
-        return index; // return the index that contain the smallest number os the ArrayList<Integer>
-                      // numbers
+        System.out.printf("The biggest and smallest numbers of the list, respectively, are: %d and %d.\n", bigger,
+                smaller);//Print the biggest and smallest numbers of the ArrayList<Integer> numbers.
+
+        return (byte) index;//Return the index that contain the smallest number os the ArrayList<Integer> numbers
     }
 
-    /************************************
+    /****************************************************************************************************
      * [METHOD B]
-     ************************************/
-
-    /*
-     * [METHOD B: (indexAndBiggestname()] Crea un mètode que rebi un arrayList de
-     * noms com a paràmetre i retorni l’índex del nom més llarg.
-     */
+     ****************************************************************************************************/
 
     public static int indexAndBiggestname(ArrayList<String> names) {
 
+        // Declaration and assignment of variables
         String name;
         int nameSize;
         int biggestNameSize = 0;
-        Integer index = 0;
+        int index = 0;
 
-        System.out.println("\nThe list of names is: ");
+        System.out.println("\nThe list of names is: ");//Print the ArrayList (Each element in a diferent line)
         for (String listName : names) {
             System.out.println(listName);
         }
@@ -76,7 +66,43 @@ public class MethodsProva {
                 index = i;
             }
         }
+        return index;//Return the index of the biggest name
+    }
 
-        return index;
+    /****************************************************************************************************
+     * [METHOD C]
+     ****************************************************************************************************/
+
+    public static ArrayList<Integer> betwheenTwoNumbers(int number1, int number2) {
+
+        //Create the ArrayList and define a type and a name
+        ArrayList<Integer> allNumbers = new ArrayList<Integer>();
+
+        for (int i = number1 + 1; i < number2; i++) {
+            allNumbers.add(i);
+        }
+        return allNumbers;//Return the ArrayList of the numbers betwheen number1 and number2
+    }
+
+    /****************************************************************************************************
+     * [METHOD D]
+     ****************************************************************************************************/
+
+    public static int indexOfChars(ArrayList<Character> letters, char search) {
+
+        //Declarate and assign the variables
+        char letter = Character.toUpperCase(search);
+        int index = -1;
+
+        System.out.printf("\nThe characters of the list are:\n");//Print the ArrayList
+        System.out.println(letters);
+
+        for (int i = 0; i < letters.size(); i++) {
+            if (letter == letters.get(i)) {
+                index = i;
+                break;
+            }
+        }
+        return index;//Return the index of the especified character
     }
 }
