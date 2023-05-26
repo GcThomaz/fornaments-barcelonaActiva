@@ -1,9 +1,13 @@
 import java.util.ArrayList;
 
 public class Prova {
+
     public static void main(String[] args) throws Exception {
 
-        //(Method A) Create a list with 10 aleatory numbers
+        /************************************
+         * [METHOD A]
+         ************************************/
+
         ArrayList<Integer> numbers = new ArrayList<Integer>();
         final int times = 10;
 
@@ -11,8 +15,27 @@ public class Prova {
             numbers.add((int) (Math.random() * 20));
         }
 
-        // Call Method A
-        int index = MethodsProva.biggerAndSmaller(numbers);
-        System.out.printf("The index of the smallest number is: %d.\n", index);
+        int indexSmallestNumber = MethodsProva.biggerSmallerIndex(numbers);
+        System.out.printf("The index of the smallest number is: %d.\n", indexSmallestNumber);
+
+        /************************************
+         * [METHOD B]
+         ************************************/
+
+        ArrayList<String> names = new ArrayList<String>();
+        names.add("Arthur");
+        names.add("Eliane");
+        names.add("Gustavo");
+        names.add("Lud");
+        names.add("Marcos");
+        names.add("Pedro");
+
+        int indexBiggestName = MethodsProva.indexAndBiggestname(names);
+        String biggestName = names.get(indexBiggestName);
+        System.out.printf("The biggest name is: %s and the index is: %d.\n", biggestName, biggestName, indexBiggestName);
     }
+
+        /************************************
+         * [METHOD C]
+         ************************************/
 }
