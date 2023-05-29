@@ -69,5 +69,4 @@ public class Prova {
         System.out.printf("The index of %c is: %d.\n", search2, invalidIndexLetter);
 
     }
-
 }
