@@ -1,73 +1,90 @@
 public class Computer {
 
-    public String brand;
-    public String model;
-    public String processor;
-    public Integer ram;
-    public Integer hardDisk;
+    /******************************************************************************************************************************
+     * [Attibutes]
+     ***************************************************************************************************************************/
+    private String brand;
+    private String model;
+    private String processor;
+    private int ram;
+    private int hardDisk;
 
-    // Getter
+    /******************************************************************************************************************************
+     * [Method Computer 1 (All Attributes)]
+     ***************************************************************************************************************************/
+    public Computer(String brand, String model, String processor, int ram, int hardDisk) {
+        this.brand = brand;
+        this.model = model;
+        this.processor = processor;
+        this.ram = ram;
+        this.hardDisk = hardDisk;
+    }
+
+    /******************************************************************************************************************************
+     * [Method Computer 2 (Attributes: brand and model)]
+     ***************************************************************************************************************************/
+     public Computer(String brand, String model) {
+         this.brand = brand;
+         this.model = model;    
+         processor = "Intel I9";
+         ram = 256;
+         hardDisk = 500; 
+     }
+
+    /******************************************************************************************************************************
+     * [Method Getters: ACCESS the private attribute information]
+     ***************************************************************************************************************************/
     public String getBrand() {
         return brand;
     }
 
-    // Setter
-    public void setBrand(String c) {
-        this.brand = c;
-    }
-
-    // Getter
     public String getModel() {
         return model;
     }
 
-    // Setter
-    public void setModel(String c) {
-        this.model = c;
-    }
-
-    // Getter
     public String getProcessor() {
         return processor;
     }
 
-    // Setter
-    public void setProcessor(String c) {
-        this.processor = c;
+    public int getRam() {
+        return ram;
     }
 
-    // Getter
-    public String getRam() {
-        return ram.toString();
+    public int getHardDisk() {
+        return hardDisk;
     }
 
-    // Setter
-    public void setRam(Integer c) {
-        this.ram = c;
+    /******************************************************************************************************************************
+     * [Method Setters: MODIFY the private attribute information]
+     ***************************************************************************************************************************/
+    public String setProcessor() {
+        return processor;
     }
 
-    // Getter
-    public String getHardDisk() {
-        return hardDisk.toString();
+    public int setRam() {
+        return ram;
     }
 
-    // Setter
-    public void setHardDisk(Integer c) {
-        this.hardDisk = c;
+    public int setHardDisk() {
+        return hardDisk;
     }
 
-    public static String returnProgram(String x, Computer y) {
-        return "Atualmente em execução: " + x + " in the computer " + y.brand + ".";
+    /******************************************************************************************************************************
+     * [Method returnProgram: return the message "Currently running: " with the String entered by user]
+     ***************************************************************************************************************************/
+    public String returnProgram(String x) {
+        return "Currently running: " + x + ".";
     }
 
-    public static String descriptionComputer(Computer x) {
-        if (x.brand != null && x.model != null && x.processor != null && x.ram != 0 && x.hardDisk != 0) {
-           return "\nThe brand of the computer is: " + x.brand + ". \nThe processor is: " + x.processor + ". \nThe model is: " + x.model + ". \nThe memory RAM is: " + x.ram + ". \nThe hard disk is: " + x.hardDisk + "."; 
-        } else {
-            return "\nThe brand of the computer is: " + x.brand + ". \nThe model is: " + x.model + ".";
-        }
-        
+    /******************************************************************************************************************************
+     * [Method descriptionComputer: return the computer's description]
+     ***************************************************************************************************************************/
+    public String descriptionComputer() {
+
+        if (brand != null && model != null && processor != null && ram != 0 && hardDisk != 0) {
+            return "\nThe brand of the computer is: " + brand + ". \nThe processor is: " + processor + ". \nThe model is: " + model + ". \nThe memory RAM is: " + ram + ". \nThe hard disk is: " + hardDisk + "."; 
+         } else {
+             return "\nThe brand of the computer is: " + brand + ". \nThe model is: " + model + ".";
+         }
     }
-
-
 }

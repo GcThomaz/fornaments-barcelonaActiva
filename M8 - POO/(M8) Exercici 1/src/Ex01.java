@@ -1,21 +1,14 @@
 public class Ex01 {
     public static void main(String[] args) throws Exception {
-        
-        Computer ex01 = new Computer();
-        ex01.setBrand("Alienware");
-        ex01.setModel("G2U6");
-        ex01.setProcessor("I9 ");
-        ex01.setRam(64);
-        ex01.setHardDisk(500);
 
-        Computer ex02 = new Computer();
-        ex02.setBrand("Dell");
-        ex02.setModel("Series");
+        Computer computer01 = new Computer("Alienware", "51MR2-A30B", "I9", 64, 500);
 
-        System.out.println(Computer.descriptionComputer(ex01));
-        System.out.println(Computer.returnProgram("Ejercicio1", ex01));
-        System.out.println(Computer.descriptionComputer(ex02));
-        System.out.println(Computer.returnProgram("Ejercicio1", ex02));
+        Computer computer02 = new Computer("Acer", "Nitro 5");
 
+        System.out.println(computer01.descriptionComputer());
+        System.out.println(computer01.returnProgram("(M8 - POO) Ejercicio 1"));
+
+        System.out.println(computer02.descriptionComputer());
+        System.out.println(computer02.returnProgram("(M8 - POO) Ejercicio 1"));
     }
 }
