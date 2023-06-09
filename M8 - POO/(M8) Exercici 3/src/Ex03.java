@@ -27,12 +27,12 @@ public class Ex03 {
 
             option = asknumber("Type the option:");
             switch (option) {
-                case 1:
+                case 1: // Create Client
                     String name = askString("What's the client name?");
                     String lastName = askString("What's the client's last name?");
-                    createClient(clientList, name, lastName);
+                    createClient(clientList, name, lastName, indexClient(clientList, name, lastName));
                     break;
-                case 2:
+                case 2: // Remove Client
                     String deleteName = askString("Type the name of the client do you want to remove:");
                     String deleteLastName = askString("Type the last name of the client do you want to remove:");
                     deleteClient(clientList, indexClient(clientList, deleteName, deleteLastName));
@@ -44,7 +44,7 @@ public class Ex03 {
                         String lastNameClientAccount = askString(
                                 "Type the last name of the client do you want to remove:");
                         Integer accountNumber = asknumber("Type the account number: ");
-                        Client.createAccount(clientList, nameClientAccount, lastNameClientAccount,
+                        createAccount(clientList, nameClientAccount, lastNameClientAccount,
                                 accountNumber);
                     } else {
                         System.out.println("\nYou need to register a client first!\n");
@@ -57,7 +57,7 @@ public class Ex03 {
                         Integer depositAccount = asknumber("Type the account number:");
                         Integer depositNumber = asknumber("Type the amount:");
                         Integer client = indexClient(clientList, depositName, depositLast);
-                        Integer conta = indexAccount(clientList, depositName, depositLast,
+                        Integer conta = Client.indexAccount(clientList, depositName, depositLast,
                                 depositAccount);
                         if (client != -1 && conta != -1) {
                             clientList.get(client).getAccountsList().get(conta).deposit(depositNumber);
@@ -76,7 +76,7 @@ public class Ex03 {
                         Integer withdrawAccount = asknumber("Type the account number:");
                         Integer withdrawNumber = asknumber("Type the amount:");
                         Integer client = indexClient(clientList, withdrawName, withdrawLastName);
-                        Integer conta = indexAccount(clientList, withdrawName, withdrawLastName,
+                        Integer conta = Client.indexAccount(clientList, withdrawName, withdrawLastName,
                                 withdrawAccount);
                         if (client != -1 && conta != -1) {
                             clientList.get(client).getAccountsList().get(conta).withdraw(withdrawNumber);
@@ -108,15 +108,19 @@ public class Ex03 {
      * [METHOD: createClient]
      ******************************************************************************************************/
     static void createClient(ArrayList<Client> clientsList, String name,
-            String lastName) {
-        ArrayList<Account> account = new ArrayList<Account>();
-        Client client = new Client(name, lastName, account);
-        clientsList.add(client);
-        System.out.println("\nClient created successfully!\n");
+            String lastName, int index) {
+        if (index == -1) {
+            Client client = new Client(name, lastName);
+            clientsList.add(client);
+            System.out.println("\nClient created successfully!\n");
+        } else {
+            System.out.println("\nClient already exists!\n");
+        }
+
     }
 
     /*****************************************************************************************************
-     * [METHOD: deleteHotel]
+     * [METHOD: deleteClient]
      *****************************************************************************************************/
     static void deleteClient(ArrayList<Client> clientsList, int index) {
 
@@ -126,6 +130,17 @@ public class Ex03 {
         } else {
             System.out.println("\nCannot not remove! This client dosn't exist in our Bank!\n");
         }
+    }
+
+    /*****************************************************************************************************
+     * [METHOD: createAccount]
+     ******************************************************************************************************/
+    static void createAccount(ArrayList<Client> clientList, String name, String lastName, Integer number) {
+        int index = indexClient(clientList, name, lastName);
+
+        Account account = new Account(number);
+        clientList.get(index).addAccount(account);
+        System.out.println("\nAccount created successfully!\n");
     }
 
     /*****************************************************************************************************
@@ -186,26 +201,6 @@ public class Ex03 {
         while (counter < cells && found == false) {
             if (clientsList.get(counter).getClientName().equalsIgnoreCase(name)
                     && clientsList.get(counter).getClientLastName().equalsIgnoreCase(lastName)) {
-                index = counter;
-                found = true;
-            }
-            counter++;
-        }
-        return index;
-    }
-
-    /*****************************************************************************************************
-     * [METHOD: Search Index Account]
-     *****************************************************************************************************/
-    static int indexAccount(ArrayList<Client> clientsList, String name, String lastName, Integer accountNumber) {
-        int index = -1;
-        int counter = 0;
-        boolean found = false;
-        int indexClient = indexClient(clientsList, name, lastName);
-        ArrayList<Account> cells = clientsList.get(indexClient).getAccountsList();
-
-        while (counter < cells.size() && found == false) {
-            if (cells.get(counter).getAccountNumber().equals(accountNumber)) {
                 index = counter;
                 found = true;
             }

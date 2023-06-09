@@ -7,15 +7,15 @@ public class Client {
      *****************************************************************************************************/
     private String clientName;
     private String clientLastName;
-    private ArrayList<Account> accountList = new ArrayList<Account>();
+    private ArrayList<Account> accountList;
 
     /*****************************************************************************************************
      * [CONSTRUCTOR]
      *****************************************************************************************************/
-    public Client(String clientName, String clientLastName, ArrayList<Account> accountsList) {
+    public Client(String clientName, String clientLastName) {
         this.clientName = clientName;
         this.clientLastName = clientLastName;
-        this.accountList = accountsList;
+        accountList = new ArrayList<Account>();
     }
 
     /*****************************************************************************************************
@@ -25,35 +25,39 @@ public class Client {
         return clientName;
     }
 
-    public void setClientName(String clientName) {
-        this.clientName = clientName;
-    }
-
     public String getClientLastName() {
         return clientLastName;
-    }
-
-    public void setClientLastName(String clientLastName) {
-        this.clientLastName = clientLastName;
     }
 
     public ArrayList<Account> getAccountsList() {
         return accountList;
     }
 
-    public void setAccountsList(ArrayList<Account> accountsList) {
-        this.accountList = accountsList;
+    /*****************************************************************************************************
+     * [METHOD: addAccount]
+     *****************************************************************************************************/
+    public void addAccount(Account account) {
+        accountList.add(account);
     }
 
     /*****************************************************************************************************
-     * [METHOD: createAccount]
-     ******************************************************************************************************/
-    static void createAccount(ArrayList<Client> clientList, String name, String lastName, Integer number) {
-        int index = Ex03.indexClient(clientList, name, lastName);
-        
-        Account account = new Account(number);
-        clientList.get(index).getAccountsList().add(account);
-        System.out.println("\nAccount created successfully!\n");
-    }
-}
+     * [METHOD: Search Index Account]
+     *****************************************************************************************************/
+    static int indexAccount(ArrayList<Client> clientsList, String name, String lastName, Integer accountNumber) {
+        int index = -1;
+        int counter = 0;
+        boolean found = false;
+        int indexClient = Ex03.indexClient(clientsList, name, lastName);
+        ArrayList<Account> cells = clientsList.get(indexClient).getAccountsList();
 
+        while (counter < cells.size() && found == false) {
+            if (cells.get(counter).getAccountNumber().equals(accountNumber)) {
+                index = counter;
+                found = true;
+            }
+            counter++;
+        }
+        return index;
+    }
+
+}

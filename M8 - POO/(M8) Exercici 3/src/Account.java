@@ -3,13 +3,14 @@ public class Account {
      * [ATTRIBUTES]
      *****************************************************************************************************/
     private Integer accountNumber;
-    private Integer accountBalance = 0;
+    private Integer accountBalance;
 
     /*****************************************************************************************************
      * [CONSTRUCTOR]
      *****************************************************************************************************/
     public Account(Integer accountNumber) {
         this.accountNumber = accountNumber;
+        accountBalance = 0;
     }
 
     /*****************************************************************************************************
