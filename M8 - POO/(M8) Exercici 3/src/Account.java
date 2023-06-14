@@ -50,6 +50,5 @@ public class Account {
         } else {
             System.out.println("Insufficient funds! You can withdraw: " + this.getAccountBalance());
         }
-
     }
 }
