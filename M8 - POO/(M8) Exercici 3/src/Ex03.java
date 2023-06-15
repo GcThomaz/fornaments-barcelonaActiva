@@ -14,6 +14,7 @@ public class Ex03 {
     static void Menu(ArrayList<Client> clientList) {
         int option = -1;
 
+
         while (option != 0) {
             System.out.println();
             System.out.println("***** MENU *****");
@@ -28,9 +29,11 @@ public class Ex03 {
             System.out.println();
 
             option = asknumber("Type the option:");
+
+            
             switch (option) {
                 case 1: // Create Client
-                    String name = askString("What's the client name?");
+                    String name = askString("What's the client's name?");
                     String lastName = askString("What's the client's last name?");
                     createClient(clientList, name, lastName, indexClient(clientList, name, lastName));
                     break;
@@ -111,14 +114,22 @@ public class Ex03 {
      ******************************************************************************************************/
     static void createClient(ArrayList<Client> clientsList, String name,
             String lastName, int index) {
-        
-        if (name == null || lastName == null || name.isEmpty() || lastName.isEmpty()) {
+
+        if (name == null || name.isEmpty()) {
             System.out.println("\n******************************************");
-            System.out.println("PLEASE, TYPE THE FULL NAME OF THE CLIENT!!!");
+            System.out.println("Please, you need to type the FIRST name of the client!!!");
             System.out.println("******************************************");
-        } else if (!isAlphabetic(name) || !isAlphabetic(lastName)) {
+        } else if (lastName == null || lastName.isEmpty()) {
+            System.out.println("\n******************************************");
+            System.out.println("Please, you need to type the LAST name of the client!!!");
+            System.out.println("******************************************");
+        } else if (!isAlphabetic(name)) {
             System.out.println("\n***************************************************");
-            System.out.println("THE NAME MUST CONTAIN ONLY LETTERS OF THE ALPHABET!");
+            System.out.println("The FIRST name must contain only letters of the alphabet!");
+            System.out.println("***************************************************");
+        } else if (!isAlphabetic(lastName)) {
+            System.out.println("\n***************************************************");
+            System.out.println("The LAST name must contain only letters of the alphabet!");
             System.out.println("***************************************************");
         } else if (index == -1) {
             Client client = new Client(name, lastName);
@@ -127,14 +138,12 @@ public class Ex03 {
         } else {
             System.out.println("\nClient already exists!\n");
         }
-
     }
 
     /*****************************************************************************************************
      * [METHOD: deleteClient]
      *****************************************************************************************************/
     static void deleteClient(ArrayList<Client> clientsList, int index) {
-
         if (index != -1) {
             clientsList.remove(clientsList.get(index));
             System.out.println("Client removed!");
@@ -242,9 +251,9 @@ public class Ex03 {
     /*****************************************************************************************************
      * [METHOD: isAlphabetic]
      *****************************************************************************************************/
-    static boolean isAlphabetic(String str) {
-        for (int i = 0; i < str.length(); i++) {
-            if (!Character.isLetter(str.charAt(i))) {
+    static boolean isAlphabetic(String word) {
+        for (int i = 0; i < word.length(); i++) {
+            if (!Character.isLetter(word.charAt(i))) {
                 return false;
             }
         }

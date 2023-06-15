@@ -37,7 +37,7 @@ public class Account {
      *****************************************************************************************************/
     public void deposit(Integer deposit) {
         this.setAccountBalance(this.getAccountBalance() + deposit);
-        System.out.println("Deposit successful!");
+        System.out.println("\nDeposit successful!");
     }
 
     /*****************************************************************************************************

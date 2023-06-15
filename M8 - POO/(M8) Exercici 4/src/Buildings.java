@@ -1,10 +1,10 @@
 public class Buildings {
-    
-//ATRIBUTTES
+
+    // ATRIBUTTES
 
     protected String buildingName;
     protected int buildingFloors;
-    protected double buildingArea; //(m²)    
+    protected double buildingArea; // (m²)
 
     public Buildings(String buildingName, int buildingFloors, double buildingArea) {
         this.buildingName = buildingName;
@@ -16,33 +16,22 @@ public class Buildings {
         return buildingName;
     }
 
-    public void setBuildingName(String buildingName) {
-        this.buildingName = buildingName;
-    }
-
     public int getBuildingFloors() {
         return buildingFloors;
-    }
-
-    public void setBuildingFloors(int buildingFloors) {
-        this.buildingFloors = buildingFloors;
     }
 
     public double getBuildingArea() {
         return buildingArea;
     }
 
-    public void setBuildingArea(double buildingArea) {
-        this.buildingArea = buildingArea;
-    }
-
     public void buildingClean() {
-        final int area = 5;
-        double floorsTime;
+        double minutes, cleaningCost, monthlyCost;
 
-        if (buildingFloors > 1) {
-            floorsTime = buildingFloors * 30;
-            floorsTime = floorsTime / 60;
-        }
+        minutes = buildingArea / 5;
+        minutes += (buildingFloors - 1) * 0.5;
+        cleaningCost = minutes * 30;
+        monthlyCost = cleaningCost * 30;
+        System.out.println("The building took " + minutes + " minutes to clean.");
+        System.out.println("The cleaning cost per month is " + monthlyCost + " euros.");
     }
 }
