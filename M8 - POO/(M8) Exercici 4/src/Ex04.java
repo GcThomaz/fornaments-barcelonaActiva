@@ -233,7 +233,7 @@ public class Ex04 {
 
                     } else {
                         System.out.println("\n******************************************************");
-                        System.out.println("THIS CLIENT DOES NOT EXIST IN OUR BANK ACCOUNT LIST!!!");
+                        System.out.println("THIS HOTEL DOES NOT EXIST IN OUR BUILDINGS LIST!!!");
                         System.out.println("******************************************************");
                     }
                     break;
@@ -241,7 +241,7 @@ public class Ex04 {
                     String nameHospital = askString("Type the name of the Hospital:");
                     int indexHospital = indexBuilding(buildingsList, nameHospital, Hospital.class);
 
-                    if (nameHospital == null || nameHospital.isEmpty()) {
+                    if (nameHospital.equals(null) || nameHospital.isEmpty()) {
                         System.out.println("\n******************************************");
                         System.out.println("PLEASE, TYPE THE NAME OF THE HOSPITAL!!");
                         System.out.println("******************************************");
@@ -264,7 +264,7 @@ public class Ex04 {
 
                     } else {
                         System.out.println("\n******************************************************");
-                        System.out.println("THIS CLIENT DOES NOT EXIST IN OUR BANK ACCOUNT LIST!!!");
+                        System.out.println("THIS HOSPITAL DOES NOT EXIST IN OUR BUILDINGS LIST!!!");
                         System.out.println("******************************************************");
                     }
                     break;
@@ -272,7 +272,7 @@ public class Ex04 {
                     String nameCinema = askString("Type the name of the Cinema:");
                     int indexCinema = indexBuilding(buildingsList, nameCinema, Cinema.class);
 
-                    if (nameCinema == null || nameCinema.isEmpty()) {
+                    if (nameCinema.equals(null) || nameCinema.isEmpty()) {
                         System.out.println("\n******************************************");
                         System.out.println("PLEASE, TYPE THE NAME OF THE CINEMA!!");
                         System.out.println("******************************************");
@@ -295,7 +295,7 @@ public class Ex04 {
 
                     } else {
                         System.out.println("\n******************************************************");
-                        System.out.println("THIS CLIENT DOES NOT EXIST IN OUR BANK ACCOUNT LIST!!!");
+                        System.out.println("THIS CINEMA DOES NOT EXIST IN OUR BUILDINGS LIST!!!");
                         System.out.println("******************************************************");
                     }
                     break;

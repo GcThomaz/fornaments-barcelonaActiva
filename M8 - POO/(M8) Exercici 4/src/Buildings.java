@@ -31,7 +31,7 @@ public class Buildings {
         minutes += (buildingFloors - 1) * 0.5;
         cleaningCost = minutes * 30;
         monthlyCost = cleaningCost * 30;
-        System.out.println("The building took " + minutes + " minutes to clean.");
-        System.out.println("The cleaning cost per month is " + monthlyCost + " euros.");
+        System.out.println("\nThe building took " + minutes + " minutes to clean.");
+        System.out.println("The cleaning cost per month is " + monthlyCost + " euros.\n");
     }
 }
