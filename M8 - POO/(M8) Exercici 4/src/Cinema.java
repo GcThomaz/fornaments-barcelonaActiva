@@ -1,5 +1,5 @@
 public class Cinema extends Buildings {
-    
+
     private int capacity;
 
     public Cinema(String buildingName, int buildingFloors, double buildingArea, int capacity) {
@@ -7,19 +7,32 @@ public class Cinema extends Buildings {
         this.capacity = capacity;
     }
 
-     public void projectSession(int participants, double ticketPrice) {
-        int actualParticipants;
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public void projectSession() {
+        int participants = 0;
+        double ticketPrice = 0;
         double revenue;
 
-        actualParticipants = Math.min(participants, capacity);
-        revenue = actualParticipants * ticketPrice;
-        System.out.println(revenue + " euros were collected.");
+        participants = Math.min(participants, capacity);
+        if (participants <= capacity) {
+            revenue = participants * ticketPrice;   
+            System.out.println(revenue + " euros were collected.");
+        } else {
+            System.out.println("The number of people cannot be greater than the capacity.");
+        }
     }
 
     public double calculateSecurityCost() {
         int securityNeeded;
         double cost;
-        
+
         securityNeeded = (int) Math.ceil(getBuildingArea() / 3000.0);
         cost = securityNeeded * 1300;
         return cost;

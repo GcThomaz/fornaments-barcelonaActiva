@@ -5,8 +5,16 @@ public class Hospital extends Buildings {
         public Hospital(String buildingName, int buildingFloors, double buildingArea, int patients) {
             super(buildingName, buildingFloors, buildingArea);
             this.patients = patients;
-        }
+        }        
         
+        public int getPatients() {
+            return patients;
+        }
+
+        public void setPatients(int patients) {
+            this.patients = patients;
+        }
+
         public void distributeMeals() {
         int mealCount;
 
