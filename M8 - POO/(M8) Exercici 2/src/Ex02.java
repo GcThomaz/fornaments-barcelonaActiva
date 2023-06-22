@@ -84,16 +84,20 @@ public class Ex02 {
      *****************************************************************************************************/
     static void seeHotel(ArrayList<Hotel> hotels, String name) {
         int index = indexHotel(hotels, name);
-        Hotel hotel = hotels.get(index);
 
-        if (index != -1) {
+        if (name == null || name.isEmpty()) {
+            System.out.println("\n******************************************");
+            System.out.println("PLEASE, TYPE THE NAME OF THE HOTEL!!");
+            System.out.println("******************************************");
+        } else if (index != -1) {
+            Hotel hotel = hotels.get(index);
             System.out.println("\nName of the hotel: " + name);
             System.out.println("Number of Rooms: " + hotel.getNumberOfRooms() + ".");
             System.out.println("Number of Floors: " + hotel.getNumberOfFloors() + ".");
             System.out.println("Total area: " + hotel.getTotalHotelArea() + "m².\n");
             hotel.calculateMaintenance();
         } else {
-            System.out.println("The hotel " + name + " is not in our Hotel List!\n");
+            System.out.println("\nThe hotel " + name + " is not in our Hotel List!\n");
         }
     }
 
@@ -175,7 +179,7 @@ public class Ex02 {
         int cells = hotels.size();
         boolean found = false;
 
-        while (counter <= cells && found == false) {
+        while (counter < cells && found == false) {
             if (hotels.get(counter).getName().equalsIgnoreCase(name)) {
                 index = counter;
                 found = true;
@@ -184,4 +188,5 @@ public class Ex02 {
         }
         return index;
     }
+
 }
