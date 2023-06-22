@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class App {
+public class Ex06 {
     public static void main(String[] args) throws Exception {
 
         /*L’usuari/ària introduirà un número (de l'1 al 10) per pantalla, i utilitzant un bucle, el programa li mostrarà la taula de multiplicar d’aquell número. */
