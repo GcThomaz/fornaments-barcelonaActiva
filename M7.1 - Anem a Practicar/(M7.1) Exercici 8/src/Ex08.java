@@ -11,6 +11,21 @@ Fórmula
  */
 
         Scanner in = new Scanner(System.in);
+        System.out.println("Type a temperature: ");
+        float temperature = in.nextFloat();
+        in.close();
+
+        conversion(temperature);
+
         
+    }
+
+    static void conversion(float temperature) {
+        final byte k = 32;
+        float result;
+
+        result = (temperature * 9 / 5) + k;
+
+        System.out.println("The temperature in Farenheit is: " + result + ".");
     }
 }
