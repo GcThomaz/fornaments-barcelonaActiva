@@ -223,10 +223,12 @@ public class Ex04 {
 
                         if (buildings instanceof Hotel) {
                             Hotel hotel = (Hotel) buildings;
+                            System.out.println("\n******************************************************************************");
                             System.out.println("Hotel " + hotel.getBuildingName() + ".");
                             hotel.buildingClean();
                             hotel.calculateRoomService();
                             hotel.calculateSecurityCost();
+                            System.out.println("******************************************************************************\n");
                         } else {
                             System.out.println("\nInvalid Option. This building is not a Hotel.\n");
                         }
