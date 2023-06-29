@@ -8,11 +8,16 @@ public class Ex05 {
     }
 
     static boolean prim(int num){
-        boolean x = false;
-        if (num % num == 0) {
-            x = true;
+
+        if (num <= 1) {
+            return false;
         }
-        return x;
+            for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }        
+        return true;
     }
 
     static int askint(String message) {
